@@ -12,6 +12,7 @@ def collect_args_main():
                         choices=[
                                  'baseline', 
                                  'model', 
+                                 'model_inv',
                                  'fake_only',
                                 ])
     
