@@ -38,6 +38,25 @@ def main(opt):
             CelebaDataset,
             number=opt['number'])
 
+        val = create_dataset_actual(
+            opt['data_setting']['path'],
+            opt['data_setting']['attribute'],
+            opt['data_setting']['protected_attribute'],
+            opt['data_setting']['params_real_val'],
+            False,
+            CelebaDataset,
+            split='valid')
+        val_weight = None
+
+        test = create_dataset_actual(
+            opt['data_setting']['path'],
+            opt['data_setting']['attribute'],
+            opt['data_setting']['protected_attribute'],
+            opt['data_setting']['params_real_val'],
+            False,
+            CelebaDataset,
+            split='test')
+
     elif opt['experiment']=='model':
         train = create_dataset_all(
             opt['data_setting']['real_params'],
@@ -63,29 +82,26 @@ def main(opt):
             opt['data_setting']['augment'],
             CelebaDataset)
 
-    # Code common to all models
-    val = create_dataset_actual(
-        opt['data_setting']['real_params']['path'],
-        opt['data_setting']['real_params']['attribute'],
-        opt['data_setting']['real_params']['protected_attribute'],
-        opt['data_setting']['params_val'],
-        False,
-        CelebaDataset,
-        split='valid')
+    if opt['experiment'] in ['model', 'model_inv', 'fake_only']:
+        val = create_dataset_actual(
+            opt['data_setting']['real_params']['path'],
+            opt['data_setting']['real_params']['attribute'],
+            opt['data_setting']['real_params']['protected_attribute'],
+            opt['data_setting']['params_val'],
+            False,
+            CelebaDataset,
+            split='valid')
 
-    if model == 'baseline':
-        val_weight = None
-    else:
         val_weight = utils.compute_class_weight(val, opt['device'], opt['dtype']).cpu().numpy()
 
-    test = create_dataset_actual(
-        opt['data_setting']['real_params']['path'],
-        opt['data_setting']['real_params']['attribute'],
-        opt['data_setting']['real_params']['protected_attribute'],
-        opt['data_setting']['params_val'],
-        False,
-        CelebaDataset,
-        split='test')
+        test = create_dataset_actual(
+            opt['data_setting']['real_params']['path'],
+            opt['data_setting']['real_params']['attribute'],
+            opt['data_setting']['real_params']['protected_attribute'],
+            opt['data_setting']['params_val'],
+            False,
+            CelebaDataset,
+            split='test')
 
     # Train the attribute classifier
     save_path = opt['save_folder']+'/best.pth'
