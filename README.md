@@ -32,7 +32,7 @@ We suggest running our code in the following order.
 - Run `generate_images.py` to generate images from z. Set output directory and latent vector filenames.
 
 #### Augmenting real-images with GAN-inversion:
-- Train a GAN with an inversion module. We used the [in-domain GAN inversion method](https://github.com/genforce/idinvert).
+- Train a GAN with an inversion module. We used the [in-domain GAN inversion method](https://github.com/genforce/idinvert) of Zhu et al.
 - Invert the CelebA training set images to latent vectors z_inv.
 - Run `linear_inv.py` to estimate hyperplanes and compute complementary latent vectors z_inv' (our augmentation).
 - Run `generate_images.py --experiment pair` to generate images from z_inv'. 
