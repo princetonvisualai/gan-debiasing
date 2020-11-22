@@ -35,7 +35,7 @@
 - Train a GAN with an inversion module. We used the [in-domain GAN inversion method](https://github.com/genforce/idinvert) of Zhu et al.
 - Invert CelebA images to latent vectors z_inv.
 - Run `linear_inv.py` to estimate hyperplanes and compute complementary latent vectors z_inv' (our augmentation).
-- Run `generate_images_inv.py` to generate images from z_inv'. This is the only script that requires TensorFlow as the GAN with an inversion module we've train was implemented in TensorFlow.
+- Run `generate_images_inv.py` to generate images from z_inv'. This is the only script that requires TensorFlow as the GAN with an inversion module we've trained was implemented in TensorFlow.
 - Run `main.py --experiment model_inv` to train target classifiers trained with data augmented from real images.
 
 
