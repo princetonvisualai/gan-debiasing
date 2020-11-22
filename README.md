@@ -16,7 +16,7 @@ We suggest running our code in the following order.
 <!--Train a progressive GAN on celeba (code here: https://github.com/facebookresearch/pytorch_GAN_zoo), save the final model in record/GAN_model/final_model.pt (or set pretrained=True in generate_images.py)-->
 
 ### Our Model:
-- Run `generate_images.py --experiment orig` to sample random noise (latent vectors) and generated images. 
+- Run `generate_images.py --experiment orig` to sample random latent vectors and generated images. 
 - Run `get_scores.py` to hallucinate labels for the generated images with the trained baseline models.
 - Run `linear.py` to estimate hyperplanes and compute complementary latent vectors z' (our augmentation).
 - Run `generate_images.py --experiment pair` to generate images from z'. 
