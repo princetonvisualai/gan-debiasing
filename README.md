@@ -1,7 +1,7 @@
 
 # Fair Attribute Classification through Latent Space De-biasing
 
-We suggest running our code in the following order.
+
 
 ## Main experiments
 
