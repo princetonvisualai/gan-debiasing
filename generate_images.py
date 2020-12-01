@@ -17,7 +17,8 @@ from os import path
 def generate_orig_images(model, num_images):
 
     noise, _ = model.buildNoiseData(num_images)
-
+    
+    print('Generating new images. Latent vectors stored at record/GAN_model/latent_vectors.pkl')
     #Saving latent vectors
     with open('record/GAN_model/latent_vectors.pkl', 'wb+') as f:
         pickle.dump(noise.detach().cpu().numpy(), f)
@@ -42,14 +43,14 @@ def generate_orig_images(model, num_images):
                 scale_each=True, 
                 normalize=True)
             count+=1
-        if ell%100==0:
-            print(ell, flush=True)
-
+    
+    print('All images generated')
 
 
 def generate_pair_images(model, latent_vectors, out_dir):
     
 
+    print('Generating image pairs.')
     noise = torch.Tensor(latent_vectors)
     
     utils.make_dir(out_dir)
@@ -71,19 +72,23 @@ def generate_pair_images(model, latent_vectors, out_dir):
                 scale_each=True, 
                 normalize=True)
             count+=1
-
+    
+    print('All images generated.')
 
 
 if __name__=="__main__":
 
     use_gpu = True if torch.cuda.is_available() else False
 
+    
     model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
                            'PGAN', model_name='celeba',
                            pretrained=True, useGPU=use_gpu)
 
-
     opt = parse_args.collect_args_generate()
+    
+    # Uncomment if deterministic run required
+    
     #torch.backends.cudnn.deterministic = True
     #torch.backends.cudnn.benchmark = False
     #torch.manual_seed(opt['random_seed'])

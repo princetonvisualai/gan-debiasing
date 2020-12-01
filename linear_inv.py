@@ -18,7 +18,7 @@ if __name__=="__main__":
     z_ran = pickle.load(open('zinv/random_latent_vectors.pkl', 'rb'))
 
     # Load labels of the latent vectors
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    attr_path = 'data/celeba/list_attr_celeba.txt'
     with open(attr_path, "r") as f:
         attr = pd.read_csv(f, delim_whitespace=True, header=1)
     g_inv = (attr['Male'][:162770].values == 1).astype(np.float16)

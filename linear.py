@@ -5,6 +5,9 @@ import argparse
 import parse_args
 from utils import make_dir
 
+# Code to compute latent vectors for paired sampling, as well as all ablations.  
+# Manipulated vectors are stored in 'record/GAN_model/latent_vectors_{attr_name}.pkl'
+
 if __name__=="__main__":
     
     opt = parse_args.collect_args_linear()

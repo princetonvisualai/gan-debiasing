@@ -5,6 +5,12 @@ import utils
 import parse_args
 
 
+# Code to compute latent vectors for comparison with Sharmanska et al. 
+# manipulated vectors are stored in 'record/GAN_model/multi_setting/latent_vectors_{attr_name}.pkl'
+# Vectors 0-159,999 flip gender expression scores, while maintaining young scores.
+# Vectors 160,000-319,999 flip young scores, while maintaining gender expression scores.
+# Vectors 320,000-479,999 flip both. 
+
 def optimize_z(A, lr, z):
     
     z_prime = np.random.normal(z.shape[0])

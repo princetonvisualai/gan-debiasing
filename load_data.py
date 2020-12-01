@@ -78,9 +78,9 @@ def create_dataset_all(real_params, fake_params, params, augment, dataset, split
         labels[fake_params['path_new'] + 'gen_'+str(i)+'.jpg'] = torch.Tensor([labeldata[i], domdata[i]])
 
 
-    img_path = real_params['path']
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = real_params['path']+'/img_align_celeba/'
+    split_path = real_params['path']+'/list_eval_partition_celeba.txt'
+    attr_path = real_params['path']+'/list_attr_celeba.txt'
 
     attribute = real_params['attribute']
     protected_attribute = real_params['protected_attribute']
@@ -154,9 +154,9 @@ def create_dataset_xprimeonly(real_params, fake_params, params, augment, dataset
         list_ids.append(fake_params['path_new'] + 'gen_'+str(i)+'.jpg')
         labels[fake_params['path_new'] + 'gen_'+str(i)+'.jpg'] = torch.Tensor([labeldata[i], domdata[i]])
 
-    img_path = real_params['path']
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = real_params['path']+'/img_align_celeba/'
+    split_path = real_params['path']+'/list_eval_partition_celeba.txt'
+    attr_path = real_params['path']+'/list_attr_celeba.txt'
 
     attribute = real_params['attribute']
     protected_attribute = real_params['protected_attribute']
@@ -225,22 +225,22 @@ def create_dataset_stargan(real_params, fake_params, params, augment, dataset, s
     labels = {}
     for i in range(162770):
         # CelebA
-        img_path = 'celeba/{:06d}.jpg'.format(i+1)
+        img_path = 'data/celeba/img_align_celeba/{:06d}.jpg'.format(i+1)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
         # Gender flipped
-        img_path = 'fake_images_raninv/Smiling/prime/gen_{}.jpg'.format(i)
+        img_path = 'data/fake_images_raninv/Smiling/prime/gen_{}.jpg'.format(i)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
         # Young flipped
-        img_path = 'fake_images_raninv/Smiling/young/gen_{}.jpg'.format(i)
+        img_path = 'data/fake_images_raninv/Smiling/young/gen_{}.jpg'.format(i)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
         # Both flipped
-        img_path = 'fake_images_stargan/gen_{}.jpg'.format(i+162770*2)
+        img_path = 'data/fake_images_stargan/gen_{}.jpg'.format(i+162770*2)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
@@ -281,22 +281,22 @@ def create_dataset_stargan_allsgd(real_params, fake_params, params, augment, dat
     labels = {}
     for i in range(162770):
         # CelebA
-        img_path = 'celeba/{:06d}.jpg'.format(i+1)
+        img_path = 'data/celeba/img_align_celeba/{:06d}.jpg'.format(i+1)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
         # Gender flipped
-        img_path = 'fake_images_stargan/gen_{}.jpg'.format(i)
+        img_path = 'data/fake_images_stargan/gen_{}.jpg'.format(i)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
         # Young flipped
-        img_path = 'fake_images_stargan/gen_{}.jpg'.format(i+162770)
+        img_path = 'data/fake_images_stargan/gen_{}.jpg'.format(i+162770)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
         # Both flipped
-        img_path = 'fake_images_stargan/gen_{}.jpg'.format(i+162770*2)
+        img_path = 'data/fake_images_stargan/gen_{}.jpg'.format(i+162770*2)
         list_ids.append(img_path)
         labels[img_path] = torch.Tensor([label_data[i], 0.])
 
@@ -339,9 +339,9 @@ def create_dataset_trainsyn(real_params, fake_params, params, augment, dataset, 
         list_ids.append(fake_params['path_orig'] + 'gen_'+str(i)+'.jpg')
         labels[fake_params['path_orig'] + 'gen_'+str(i)+'.jpg'] = torch.Tensor([labeldata[i], domdata[i]])
 
-    img_path = real_params['path']
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = real_params['path']+'/img_align_celeba/'
+    split_path = real_params['path']+'/list_eval_partition_celeba.txt'
+    attr_path = real_params['path']+'/list_attr_celeba.txt'
 
     attribute = real_params['attribute']
     protected_attribute = real_params['protected_attribute']
@@ -412,9 +412,9 @@ def create_dataset_inv(real_params, fake_params, params, augment, dataset, split
         list_ids.append(fake_params['path_new'] + 'gen_'+str(i)+'.jpg')
         labels[fake_params['path_new'] + 'gen_'+str(i)+'.jpg'] = torch.Tensor([labeldata[i], domdata[i]])
 
-    img_path = real_params['path']
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = real_params['path']+'/img_align_celeba/'
+    split_path = real_params['path']+'/list_eval_partition_celeba.txt'
+    attr_path = real_params['path']+'/list_attr_celeba.txt'
 
     attribute = real_params['attribute']
     protected_attribute = real_params['protected_attribute']
@@ -501,9 +501,9 @@ def create_dataset_inv_dist(real_params, fake_params, params, augment, dataset, 
 
     #print('list_ids', len(list_ids))
 
-    img_path = real_params['path']
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = real_params['path']+'/img_align_celeba/'
+    split_path = real_params['path']+'/list_eval_partition_celeba.txt'
+    attr_path = real_params['path']+'/list_attr_celeba.txt'
 
     attribute = real_params['attribute']
     protected_attribute = real_params['protected_attribute']
@@ -698,9 +698,9 @@ def create_dataset_only_correct(path_orig, path_new, range_orig_image, range_ori
 
 def create_dataset_actual(path, attribute, protected_attribute, params, augment, dataset, number=0, split='train'):
 
-    img_path = path
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = path+'/img_align_celeba/'
+    split_path = path+'/list_eval_partition_celeba.txt'
+    attr_path = path+'/list_attr_celeba.txt'
     list_ids = []
     label = open(attr_path, 'r')
     label = label.readlines()
@@ -950,9 +950,9 @@ def create_dataset_all_skewdata(real_params, fake_params, params, augment, datas
 
 def create_dataset_actual_fivecrop(path, attribute, protected_attribute, params, augment, dataset, number=0, split='train'):
 
-    img_path = path
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = path+'/img_align_celeba/'
+    split_path = path+'/list_eval_partition_celeba.txt'
+    attr_path = path+'/list_attr_celeba.txt'
     list_ids = []
     label = open(attr_path, 'r')
     label = label.readlines()
@@ -1011,9 +1011,9 @@ def create_dataset_actual_fivecrop(path, attribute, protected_attribute, params,
 
 def create_dataset_one_prot_only(path, attribute, protected_attribute, params, augment, dataset, protected_val = 0, number=0, split='train'):
 
-    img_path = path
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
+    img_path = path+'/img_align_celeba/'
+    split_path = path+'/list_eval_partition_celeba.txt'
+    attr_path = path+'/list_attr_celeba.txt'
     list_ids = []
     label = open(attr_path, 'r')
     label = label.readlines()
@@ -1068,67 +1068,7 @@ def create_dataset_one_prot_only(path, attribute, protected_attribute, params, a
     loader = DataLoader(dset, **params)
 
     return loader
-"""
-def create_dataset_actual_all(path, params, dataset, number=0, split='train'):
 
-    img_path = path
-    split_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_eval_partition_celeba.txt'
-    attr_path = '/n/fs/visualai-scr/Data/CelebA/celeba/list_attr_celeba.txt'
-    list_ids = []
-    label = open(attr_path, 'r')
-    label = label.readlines()
-    train_beg = 0
-    valid_beg = 162770
-    test_beg = 182637
-
-    if split=='train':
-        if number==0:
-            number = valid_beg - train_beg
-        beg = train_beg
-    elif split=='valid':
-        if number==0:
-            number = test_beg - valid_beg
-        beg = valid_beg
-    elif split=='test':
-        if number==0:
-            number = 202599 - test_beg
-        beg = test_beg
-    else:
-        print('Error')
-        return
-    attr = {}
-    for i in range(beg+2, beg+ number+2):
-        temp = label[i].strip().split()
-        #print(temp)
-        #print(type(temp[0]), type(temp[1]))
-        list_ids.append(img_path+temp[0])
-        attr_labels = np.array([float(temp[ell]) for ell in range(1,41)])
-        attr_labels = 0.5*(attr_labels+1)
-        #print(attr_labels)
-        attr[img_path+temp[0]]=attr_labels
-
-    dset = dataset(list_ids, attr)
-    loader = DataLoader(dset, **params)
-
-    return loader
-
-
-def create_dataset_together_onlyone(path, range1, label_path, params, dataset):
-
-    list_ids = []
-    labeldata = np.loadtxt(label_path)
-    labeldata = np.where(labeldata>0.5, 1, 0)
-    #labeldata = np.tile(labeldata, 2)
-    labels = {}
-    for i in range(range1[0], range1[1]):
-        list_ids.append(path + 'gen_'+str(i)+'.jpg')
-        labels[path+ 'gen_'+str(i)+'.jpg'] = labeldata[i]
-
-    dset = dataset(list_ids, labels)
-    loader = DataLoader(dset, **params)
-
-    return loader
-"""
 def create_dataset_single_domain(path, label_path, range1, params, dataset, augment):
 
     list_ids = []
@@ -1188,3 +1128,87 @@ def create_dataset_nolabel(path, range1, params, dataset):
     loader = DataLoader(dset, **params)
 
     return loader
+
+def create_dataset_full_skew(path, attribute1, attribute2, params, augment, dataset, opp = False, number=0, split='train', transform=None):
+    
+    img_path = path + '/img_align_celeba/'
+    split_path = path + '/list_eval_partition_celeba.txt'
+    attr_path = path + '/list_attr_celeba.txt'
+    list_ids = []
+    label = open(attr_path, 'r')
+    label = label.readlines()
+    train_beg = 0
+    valid_beg = 162770
+    test_beg = 182637
+    
+    if split=='train':
+        if number==0:
+            number = valid_beg - train_beg
+        beg = train_beg
+    elif split=='valid':
+        if number==0:
+            number = test_beg - valid_beg
+        beg = valid_beg
+    elif split=='test':
+        if number==0:
+            number = 202599 - test_beg
+        beg = test_beg
+    else:
+        print('Error')
+        return
+    attr = {}
+    use_val_pos = []
+    use_val_neg = []
+
+    for i in range(beg+2, beg+ number+2):
+        temp = label[i].strip().split()
+        if not opp:
+            if int(temp[attribute1+1])== int(temp[attribute2+1]):
+                if int(temp[attribute1+1])==1:
+                    use_val_pos.append(i)
+                else:
+                    use_val_neg.append(i)
+        else:    
+            if int(temp[attribute1+1]) != int(temp[attribute2+1]):
+                if int(temp[attribute1+1])==1:
+                    use_val_pos.append(i)
+                else:
+                    use_val_neg.append(i)
+                
+    if len(use_val_pos)>len(use_val_neg):
+        use_val_pos=np.random.choice(use_val_pos, len(use_val_neg))
+    else:
+        use_val_neg=np.random.choice(use_val_neg, len(use_val_pos))
+    #print(len(use_val_pos), len(use_val_neg), len(use_val_pos+use_val_neg))
+    use_pos = np.concatenate([use_val_pos, use_val_neg])
+    for i in use_pos:
+        temp = label[i].strip().split()
+        list_ids.append(img_path+temp[0])
+        attr[img_path+temp[0]]= torch.Tensor([int((int(temp[attribute1+1])+1)/2), int((int(temp[attribute2+1])+1)/2)])
+
+    normalize = T.Normalize(mean=[0.485, 0.456, 0.406],std=[0.229, 0.224, 0.225])
+    if transform==None: 
+        if augment:
+            transform = T.Compose([
+                T.Resize(64),
+                T.Resize(256),
+                T.RandomCrop(224),
+                T.RandomHorizontalFlip(),
+                T.ToTensor(),
+                normalize
+            ])
+        else:
+            transform = T.Compose([
+                T.Resize(64),
+                T.Resize(256),
+                T.CenterCrop(224),
+                T.ToTensor(),
+                normalize
+            ])
+       
+    #print(transform)    
+    dset = dataset(list_ids, attr, transform)
+    loader = DataLoader(dset, **params)
+
+    return loader
+

@@ -24,8 +24,9 @@ from sklearn.metrics import average_precision_score
 def main(opt):
     attr_list = utils.get_all_attr()
     attr_name = attr_list[opt['attribute']]
+    
 
-    print(attr_name)
+    #print(attr_name)
     print(opt)
 
     if opt['experiment']=='baseline':
@@ -107,8 +108,10 @@ def main(opt):
     save_path = opt['save_folder']+'/best.pth'
     save_path_curr = opt['save_folder'] + '/current.pth'
     if not opt['test_mode']:
+        print('Starting to train model...')
         model_path = None
         if path.exists(save_path_curr):
+            print('Model exists, resuming training')
             model_path = save_path_curr
         AC = attribute_classifier(opt['device'], opt['dtype'], modelpath=model_path)
         for i in range(AC.epoch, opt['total_epochs']):
@@ -151,6 +154,12 @@ def main(opt):
         'cal_thresh': cal_thresh,
         'opt': opt
     }
+    
+    print('Validation results: ')
+    print('AP : {:.1f} +- {:.1f}', 100*ap, 200*ap_std)
+    print('DEO : {:.1f} +- {:.1f}', 100*deo, 200*deo_std)
+    print('BA : {:.1f} +- {:.1f}', 100*ba, 200*ba_std)
+    print('KL : {:.1f} +- {:.1f}', kl, 2*kl)
 
     with open(opt['save_folder']+'/val_results.pkl', 'wb+') as handle:
         pickle.dump(val_results,handle)
@@ -170,6 +179,12 @@ def main(opt):
         'cal_thresh': cal_thresh,
         'opt': opt
     }
+    
+    print('Test results: ')
+    print('AP : {:.1f} +- {:.1f}', 100*ap, 200*ap_std)
+    print('DEO : {:.1f} +- {:.1f}', 100*deo, 200*deo_std)
+    print('BA : {:.1f} +- {:.1f}', 100*ba, 200*ba_std)
+    print('KL : {:.1f} +- {:.1f}', kl, 2*kl)
 
     with open(opt['save_folder']+'/test_results.pkl', 'wb+') as handle:
         pickle.dump(test_results,handle)

@@ -36,7 +36,8 @@ def collect_args_main():
     return opt
 
 def create_experiment_setting(opt):
-    
+
+    # Uncomment if deterministic run required. 
     #torch.backends.cudnn.deterministic = True
     #torch.backends.cudnn.benchmark = False
     #torch.manual_seed(opt['random_seed'])
@@ -231,7 +232,8 @@ def collect_args_linear():
 def collect_args_full_skew():
     parser = argparse.ArgumentParser()
     parser.add_argument('--attribute1', type=int, default=31)
-    parser.add_argument('--attribute2', type=int, default=31)
+    parser.add_argument('--attribute2', type=int, default=20)
+    parser.add_argument('--real_data_dir', type=str, default='data/celeba')
     parser.add_argument('--random_seed', type=int, default=0)
     parser.add_argument('--test_mode', type=bool, default=False)
     parser.add_argument('--opp', type=bool, default=False)
@@ -258,7 +260,7 @@ def collect_args_full_skew():
 
        
     data_setting = {
-        'path': 'data/celeba',
+        'path': opt['real_data_dir'],
         'params_real_train': params_real_train,
         'params_real_val': params_real_val,
         'attribute1': opt['attribute1'],
@@ -274,40 +276,3 @@ def collect_args_full_skew():
     utils.make_dir(opt['save_folder'])
     return opt
 
-def collect_args_CUB():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--random_seed', type=int, default=0)
-    parser.add_argument('--test_mode', type=bool, default=False)
-    parser.add_argument('--experiment_name', type=str, default='_')
-    parser.set_defaults(cuda=True)
-
-    opt = vars(parser.parse_args())
-    
-    if torch.cuda.is_available(): 
-        opt['device'] = torch.device('cuda')
-    else:
-        opt['device'] = torch.device('cpu')
-    opt['dtype'] = torch.float32
-    opt['total_epochs']=200 
-    params_real_train = {'batch_size': 32,
-             'shuffle': True,
-             'num_workers': 0}
-    
-    params_real_val = {'batch_size': 64,
-             'shuffle': False,
-             'num_workers': 0}
-
-       
-    data_setting = {
-        'path': 'data/CUB_200_2011',
-        'params_real_train': params_real_train,
-        'params_real_val': params_real_val,
-        'augment': True
-    }
-    opt['data_setting'] = data_setting
-    if opt['experiment_name']=='_':
-        opt['save_folder'] = 'record/CUB_baseline/'
-    else: 
-        opt['save_folder'] = 'record/'+opt['experiment_name']+'/'
-    utils.make_dir(opt['save_folder'])
-    return opt

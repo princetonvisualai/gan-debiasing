@@ -4,6 +4,10 @@ import pickle
 import utils
 import parse_args
 
+# Code to compute latent vectors for extension of model that uses different target attribute hyperplanes 
+# for vectors of different protected attribute values. 
+# manipulated vectors are stored in 'record/GAN_model/domain_dependent/latent_vectors_{attr_name}.pkl'
+
 
 def optimize_z(A, lr, z):
     
@@ -48,15 +52,9 @@ if __name__=="__main__":
     clf_g.coef_ = clf_g.coef_/(clf_g_norm)
     clf_g.intercept_ = clf_g.intercept_/clf_g_norm
 
-    g0 = []
-    g1 = []
+    g0 = list(np.argwhere(g_train==0).squeeze())
+    g1 = list(np.argwhere(g_train==1).squeeze())
     
-    for i in range(10000):
-        if g_train[i]==1:
-            g1.append(i)
-        else:
-            g0.append(i)
-
 
     clf_a0 = svm.LinearSVC(max_iter=500000) 
     clf_a0.fit(X_train[g0], a_train[g0])
