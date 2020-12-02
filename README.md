@@ -37,7 +37,7 @@ This repo provides the code for our paper "Fair Attribute Classification through
 ## Extensions of our method
 
 #### Domain-dependent hyperplanes:
-- Run `linear_domain_dep.py` to estimate domain-dependent hyperplanes and compute z' with them.
+- Run `linear_dom_dep.py` to estimate domain-dependent hyperplanes and compute z' with them.
 - Run `generate_images.py --experiment pair` to generate images from z' and train a classifier with these images.
 
 #### Augmenting real-images with GAN-inversion:
