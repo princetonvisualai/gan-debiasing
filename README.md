@@ -38,7 +38,7 @@ This repo provides the code for our paper "Fair Attribute Classification through
 ## Extensions of our method
 
 #### Domain-dependent hyperplanes:
-- Run `domain_dep_linear.py` to estimate domain-dependent hyperplanes and compute z' with them.
+- Run `linear_domain_dep.py` to estimate domain-dependent hyperplanes and compute z' with them.
 - Run `generate_images.py --experiment pair` to generate images from z'. Set image output directory and latent vector filename.
 
 #### Augmenting real-images with GAN-inversion:
@@ -47,5 +47,9 @@ This repo provides the code for our paper "Fair Attribute Classification through
 - Run `linear_inv.py` to estimate hyperplanes and compute complementary latent vectors z_inv' (our augmentation).
 - Run `generate_images_inv.py` to generate images from z_inv'. This is the only script that requires TensorFlow as the GAN with an inversion module we've trained was implemented in TensorFlow.
 - Run `main.py --experiment model_inv` to train target classifiers trained with data augmented from real images.
+
+#### Augmenting two protected attributes:
+- Run `linear_multi_sgd.py` to estimate domain-dependent hyperplanes and compute z' with them.
+- Run `generate_images.py --experiment pair` to generate images from z'. Set image output directory and latent vector filename.
 
 
