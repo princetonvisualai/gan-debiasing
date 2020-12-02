@@ -53,5 +53,5 @@ This repo provides the code for our paper "Fair Attribute Classification through
 
 
 ## Additional experiments
-- full_skew_tests.py: Code for running experiments on the discriminability of attributes.
-- linear_underrep.py: Code for estimating hyperplanes with different fractions of positive/negative samples.
+- `full_skew_tests.py`: Code for running experiments on the discriminability of attributes.
+- `linear_underrep.py`: Code for estimating hyperplanes with different fractions of positive/negative samples.
