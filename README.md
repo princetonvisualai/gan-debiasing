@@ -34,7 +34,6 @@ This repo provides the code for our paper "Fair Attribute Classification through
 - Run `generate_images.py --experiment pair` to generate images from z'. Set image output directory and latent vector filename.
 - Run `main.py --experiment model` to train our models (i.e. target classifiers trained with our augmented data).
 
-
 ## Extensions of our method
 
 #### Domain-dependent hyperplanes:
