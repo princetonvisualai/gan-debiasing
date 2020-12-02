@@ -1,7 +1,17 @@
 
 # Fair Attribute Classification through Latent Space De-biasing
 
-
+This repo provides the code for our paper "Fair Attribute Classification through Latent Space De-biasing."
+```
+@article{ramaswamy2020gandebiasing,
+  author = {Vikram V. Ramaswamy and Sunnie S. Y. Kim and Olga Russakovsky},
+  title = {Fair Attribute Classification through Latent Space De-biasing},
+  year = {2020}, 
+  eprint={},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
+}
+```
 
 ## Main experiments
 
@@ -13,7 +23,7 @@
 - Run `main.py --experiment baseline` to train a standard attribute classifier for each target attribute.
 
 #### GAN:
-- Option 1: Train a (Progressive) GAN on CelebA.
+- Option 1: Train a (Progressive) GAN on the CelebA training set (162,770 images).
 - Option 2: Set `pretrained=True` in `generate_images.py` to use a GAN trained by [Facebook Research](https://github.com/facebookresearch/pytorch_GAN_zoo).
 <!--Train a progressive GAN on celeba (code here: https://github.com/facebookresearch/pytorch_GAN_zoo), save the final model in record/GAN_model/final_model.pt (or set pretrained=True in generate_images.py)-->
 
@@ -21,18 +31,18 @@
 - Run `generate_images.py --experiment orig` to sample random latent vectors z and generated images. 
 - Run `get_scores.py` to hallucinate labels for the generated images with the trained baseline models.
 - Run `linear.py` to estimate hyperplanes and compute complementary latent vectors z' (our augmentation).
-- Run `generate_images.py --experiment pair` to generate images from z'. 
+- Run `generate_images.py --experiment pair` to generate images from z'. Set image output directory and latent vector filename.
 - Run `main.py --experiment model` to train our models (i.e. target classifiers trained with our augmented data).
 
 
 ## Extensions of our method
 
 #### Domain-dependent hyperplanes:
-- Run `domain_dep_linear.py` to estimate domain-dependent hyperplanes and compute z'.
-- Run `generate_images.py` to generate images from z. Set output directory and latent vector filenames.
+- Run `domain_dep_linear.py` to estimate domain-dependent hyperplanes and compute z' with them.
+- Run `generate_images.py --experiment pair` to generate images from z'. Set image output directory and latent vector filename.
 
 #### Augmenting real-images with GAN-inversion:
-- Train a GAN with an inversion module. We used the [in-domain GAN inversion method](https://github.com/genforce/idinvert) of Zhu et al.
+- Train a GAN with an inversion module. We used the [in-domain GAN inversion method](https://github.com/genforce/idinvert) by Zhu et al.
 - Invert CelebA images to latent vectors z_inv.
 - Run `linear_inv.py` to estimate hyperplanes and compute complementary latent vectors z_inv' (our augmentation).
 - Run `generate_images_inv.py` to generate images from z_inv'. This is the only script that requires TensorFlow as the GAN with an inversion module we've trained was implemented in TensorFlow.
