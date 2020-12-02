@@ -39,7 +39,7 @@ This repo provides the code for our paper "Fair Attribute Classification through
 
 #### Domain-dependent hyperplanes:
 - Run `linear_domain_dep.py` to estimate domain-dependent hyperplanes and compute z' with them.
-- Run `generate_images.py --experiment pair` to generate images from z'. Set image output directory and latent vector filename.
+- Run `generate_images.py --experiment pair` to generate images from z' and train a classifier with these images.
 
 #### Augmenting real-images with GAN-inversion:
 - Train a GAN with an inversion module. We used the [in-domain GAN inversion method](https://github.com/genforce/idinvert) by Zhu et al.
@@ -50,6 +50,9 @@ This repo provides the code for our paper "Fair Attribute Classification through
 
 #### Augmenting two protected attributes:
 - Run `linear_multi_sgd.py` to estimate domain-dependent hyperplanes and compute z' with them.
-- Run `generate_images.py --experiment pair` to generate images from z'. Set image output directory and latent vector filename.
+- Run `generate_images.py --experiment pair` to generate images from z' and train a classifier with these images.
 
 
+## Additional experiments
+- full_skew_tests.py: Code for running experiments on the discriminability of attributes.
+- linear_underrep.py: Code for estimating hyperplanes with different fractions of positive/negative samples.
