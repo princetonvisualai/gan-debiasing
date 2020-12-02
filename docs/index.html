@@ -1,0 +1,290 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fair Attribute Classification through Latent Space De-biasing</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'>
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="mainpage.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<!-- Conference logo -->
+<div class="row" style="text-align:center;padding:0;margin:0;padding-top:40;padding-bottom:10">
+  <div class="container">
+    <img src="imgs/princetonlogo.png" height="40px" style="vertical-align:middle">
+    <span style="font-size:32px;vertical-align:middle"><a href="https://visualai.princeton.edu" style="color:#ff8f00" target="_blank">Princeton Visual AI Lab</a></span>
+  </div>
+</div>
+  
+<!-- Authors -->
+<div class="container-fluid">
+  <div class="row">
+    <h1><span style="font-size:40px;color:#333;font-weight:800">Fair Attribute Classification through Latent Space De-biasing</span></h1>
+    <div class="authors">
+      <span style="font-size:18px"><a href="https://www.cs.princeton.edu/~vr23/" style="color:#1075bc" target="new">Vikram V. Ramaswamy</a></span>
+      &nbsp;
+      <span style="font-size:18px"><a href="https://www.cs.princeton.edu/~suhk/" style="color:#1075bc" target="new">Sunnie S. Y. Kim</a></span>
+      &nbsp;
+      <span style="font-size:18px"><a href="https://www.cs.princeton.edu/~olgarus/" style="color:#1075bc" target="new">Olga Russakovsky</a></span>
+      <br>
+      <span style="font-size:18px">Princeton University</span>
+      <br>
+      <span style="font-size:18px">{vr23, suhk, olgarus}@cs.princeton.edu<br><br></span>
+    </div>
+  </div>
+</div>
+
+<!-- Figure 1 -->
+<div class="row" style="text-align:center;padding:0;margin:0">
+  <div class="container">
+    <figure>
+     <img src="imgs/PullFigure_large.png" style="width:70%">
+      <figcaption>
+        Training a visual classifier for an attribute (e.g., wearing hat) can be complicated by correlations in the training data. 
+        For example, the presence of hats can be correlated with the presence of glasses. 
+        We propose a dataset augmentation strategy using Generative Adversarial Networks (GANs) 
+        that successfully removes this correlation by adding or removing glasses from existing images, creating a balanced dataset.
+      </figcaption>
+    </figure>
+    
+  </div>
+</div>
+
+&nbsp;
+
+<!-- Icons -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-0 col-md-0 col-sm-0"></div>
+          
+    <!--<div class="col-xs-2 col-xs-offset-1 text-center">-->
+    <div class="col-xs-2 col-xs-offset-4 text-center">
+      <div class="service-box mt-5 mx-auto">
+        <a href="https://arxiv.org/abs/2003.11038" target="_blank">
+          <i class="fa fa-4x fa-file-text-o text-primary mb-3"></i>
+        </a>
+        <h4 class="mb-3" style="font-size:18px">Paper</h4>
+      </div>
+    </div>
+
+    <div class="col-xs-3 text-center">
+      <div class="service-box mt-5 mx-auto">
+        <a href="https://github.com/princetonvisualai/gan-debiasing" target="_blank">
+          <i class="fa fa-4x fa-github text-primary mb-3 "></i>
+        </a>
+        <h4 class="mb-3" style="font-size:18px">Code</h4>
+        </div>
+    </div>
+
+    <!--
+    <div class="col-xs-2 text-center">
+      <div class="service-box mt-5 mx-auto">
+        <a href="https://bit.ly/DST-demo" target="_blank">
+          <i class="fa fa-2x fa-paint-brush text-primary mb-3 "></i>
+        </a>
+        <h4 class="mb-3" style="font-size:18px">Demo</h4>
+      </div>
+    </div>
+    -->
+    
+    <!--
+    <div class="col-xs-2 text-center">
+      <div class="service-box mt-5 mx-auto">
+        <a href="https://youtu.be/mVU5tSxS4is" target="_blank">
+          <i class="fa fa-2x fa-video-camera text-primary mb-3 "></i>
+        </a>
+        <h4 class="mb-3" style="font-size:18px">Talk</h4>
+      </div>
+    </div>
+    -->
+
+    <!--
+    <div class="col-xs-2 text-center">
+      <div class="service-box mt-5 mx-auto">
+        <a href="https://github.com/sunniesuhyoung/DST/blob/master/dst.bib" target="_blank">
+          <i class="fa fa-3x fa-quote-right text-primary mb-3 "></i>
+        </a>
+        <h4 class="mb-3" style="font-size:18px">Bibtex</h4>
+      </div>
+    </div>
+    -->
+                                                   
+  </div>
+</div>
+
+<!-- Abstract -->
+<div class="container">
+  <h2>Abstract</h2>
+  Fairness in visual recognition is becoming a prominent and critical topic of discussion 
+  as recognition systems are deployed at scale in the real world. Models trained from data 
+  in which target labels are correlated with protected attributes (e.g., gender, race) are 
+  known to learn and exploit those correlations. In this work, we introduce a method for 
+  training accurate target classifiers while mitigating biases that stem from these correlations. 
+  We use GANs to generate realistic-looking images, and perturb these images in the underlying 
+  latent space to generate training data that is balanced for each protected attribute. 
+  We augment the original dataset with this perturbed generated data, and empirically 
+  demonstrate that target classifiers trained on the augmented dataset exhibit a number 
+  of both quantitative and qualitative benefits. We conduct a thorough evaluation across 
+  multiple target labels and protected attributes in the CelebA dataset, and provide an 
+  in-depth analysis and comparison to existing literature in the space.
+</div>
+  
+<!-- Citation -->
+<div class="container">
+  <h2>Citation</h2>
+  <pre><code>
+    @article{ramaswamy2020gandebiasing,
+        author = {Vikram V. Ramaswamy and Sunnie S. Y. Kim and Olga Russakovsky},
+        title = {Fair Attribute Classification through Latent Space De-biasing},
+        year = {2020},
+        eprint = {},
+        archivePrefix = {arXiv},
+        primaryClass = {cs.CV}
+    }
+  </code></pre>
+</div>
+
+<!-- Talk -->
+<!--
+<div class="container" >
+  <h2>1 Minute Summary</h2>
+  <div>
+    <div style="width: 75%;height: 0;padding-bottom: 42%;position: relative;margin-left: auto;margin-right: auto;">
+      <iframe src="https://youtube.com/embed/7qUzfcn6TPk" allowfullscreen style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+    </div>
+  </div>
+</div>
+-->
+
+<!-- Method -->
+<div class="container">
+  <h2>Creating a De-biased Dataset to Train Fairer Attribute Classifiers</h2>
+  
+  We propose a method for perturbing latent vectors in the GAN latent space that successfully 
+  de-correlates target and protected attributes and allows for augmenting and de-biasing the real-world dataset.
+  
+  <br />
+  <br />
+  
+  <img src="imgs/MethodFig_Latent_portrait_swapped.png" style="width:50%">
+  
+  <br />
+  <br />
+
+  (Top left) The trained GAN learns a distribution from which it samples z.
+  For each z sampled, we compute z' such that its target attribute score remains the same (according to wa) 
+  while its protected attribute score is negated (according to wg).
+  
+  <br />
+  <br />
+  
+  (Top right) We add images G(z) and G(z') to our training set, and train a target classifier on both the real dataset 
+  and the balanced synthetic dataset generated through our paired augmentation method.
+  
+</div>
+
+<!-- Results -->
+<div class="container">
+  <h2>Results</h2>
+  
+  In the below table, we compare our model (i.e. target classifier trained on both the de-biased synthetic dataset and the real dataset) 
+  with a baseline modoel trained on the real dataset. We show results on four metrics: average precision (AP), 
+  difference in equality of opportunity (DEO), bias amplification (BA), and KL divergence between score histograms (KL).
+  The numbers are averaged for each attribute category: inconsistently labeled, gender-dependent, and gender-independent. 
+  
+  <br />
+  <br />
+  
+  <img src="imgs/table.png" style="width:50%" alt="centered image">
+  
+  <br />
+  <br />
+  
+  Our model performs better on all three fairness metrics, DEO, BA and KL, while maintaining comparable AP. 
+  
+  <br />
+  <br />
+  
+  In our paper, we provide an in-depth analysis of our method and comparison to existing literature in the space. 
+  Our findings show the promise of augmenting data in the GAN latent space in a variety of settings.
+
+</div>
+
+<!-- Related Work -->
+<div class="container" >
+  <h2>Related Work</h2>
+  <div>
+  Below are some papers related to our work. We discuss them in more detail in the related work section of our paper.
+  </div>
+  
+  &nbsp;
+  
+  <div>
+    <a href="https://arxiv.org/abs/1906.06439" target="_blank">Image Counterfactual Sensitivity Analysis for Detecting Unintended Bias.</a>
+    Emily Denton, Ben Hutchinson, Margaret Mitchell, Timnit Gebru, Andrew Zaldivar. 
+    CVPR 2019 Workshop on Fairness Accountability Transparency and Ethics in Computer Vision.
+  </div>
+  
+  &nbsp;
+  
+  <div>
+    <a href="https://arxiv.org/abs/1805.09910" target="_blank"> Fairness GAN.</a>
+    Prasanna Sattigeri, Samuel C. Hoffman, Vijil Chenthamarakshan, Kush R. Varshney. 
+    IBM Journal of Research and Development 2019.
+  </div>
+  
+  &nbsp;
+    
+  <div>
+    <a href="https://arxiv.org/abs/2004.06524" target="_blank">Contrastive Examples for Addressing the Tyranny of the Majority.</a> 
+    Viktoriia Sharmanska, Lisa Anne Hendricks, Trevor Darrell, Novi Quadrianto. arXiv 2020
+  </div>
+    
+  &nbsp;
+    
+  <div>
+    <a href="https://arxiv.org/abs/1910.12008" target="_blank">Fair Generative Modeling via Weak Supervision.</a> 
+    Kristy Choi, Aditya Grover, Trisha Singh, Rui Shu, Stefano Ermon. ICML 2020
+  </div>
+    
+  &nbsp;
+    
+  <div>
+    <a href="https://arxiv.org/abs/2007.06570" target="_blank">Towards Causal Benchmarking of Bias in Face Analysis Algorithms.</a> 
+    Guha Balakrishnan, Yuanjun Xiong, Wei Xia, Pietro Perona. ECCV 2020
+  </div>
+    
+  &nbsp;
+    
+  <div>
+    <a href="https://arxiv.org/abs/1911.11834" target="_blank">Towards Fairness in Visual Recognition: Effective Strategies for Bias Mitigation.</a> 
+    Zeyu Wang, Klint Qinami, Ioannis Christos Karakozis, Kyle Genova, Prem Nair, Kenji Hata, Olga Russakovsky. CVPR 2020
+  </div>
+    
+</div>
+
+<!-- Acknowledgements -->
+<div class="container">
+  <h2>Acknowledgements</h2>
+
+  This work is supported by the National Science Foundation under Grant No. 1763642, 
+  and the Princeton First Year Fellowship to SK. We also thank Deniz Oktay, Felix Yu, Angelina Wang and 
+  Zeyu Wang, as well as the Fairness in AI group for helpful comments and suggestions.
+  
+</div>
+  
+<div class="container" >
+  <h2>Contact</h2>
+  <div><a href="https://www.cs.princeton.edu/~vr23/" style="color:#222" target="_blank">Vikram V. Ramaswamy</a> (vr23@cs.princeton.edu)</div>
+</div>
+
+<div id="footer">
+</div>
+
+
+</body>
+</html>
