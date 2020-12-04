@@ -1,15 +1,17 @@
 
 # Fair Attribute Classification through Latent Space De-biasing
 
+### [Project Page](https://princetonvisualai.github.io/gan-debiasing/) | [Paper](https://arxiv.org/abs/2012.01469)
+
 This repo provides the code for our paper "Fair Attribute Classification through Latent Space De-biasing."
 ```
 @article{ramaswamy2020gandebiasing,
   author = {Vikram V. Ramaswamy and Sunnie S. Y. Kim and Olga Russakovsky},
   title = {Fair Attribute Classification through Latent Space De-biasing},
   year = {2020}, 
-  eprint={},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV}
+  eprint = {2012.01469},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV}
 }
 ```
 
