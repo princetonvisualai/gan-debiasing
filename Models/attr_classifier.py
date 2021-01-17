@@ -40,7 +40,7 @@ class attribute_classifier():
     def train(self, loader, weighted=False, weight_dict=None):
         """Train the model for one epoch"""
         
-        self.network.train()
+        self.model.train()
         train_loss = 0
         self.model = self.model.to(device=self.device, dtype=self.dtype)
         for i, (images, targets) in enumerate(loader):
