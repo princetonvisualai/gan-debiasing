@@ -1,7 +1,7 @@
 
 # Fair Attribute Classification through Latent Space De-biasing
 
-### [Project Page](https://princetonvisualai.github.io/gan-debiasing/) | [Paper](https://arxiv.org/abs/2012.01469)
+### [Project page](https://princetonvisualai.github.io/gan-debiasing/) | [Paper](https://arxiv.org/abs/2012.01469) | [Colab notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C2W2_GAN_Debiasing_(Optional).ipynb)
 
 This repo provides the code for our CVPR 2021 paper "Fair Attribute Classification through Latent Space De-biasing."
 ```
@@ -57,4 +57,4 @@ year = {2021}
 - `linear_underrep.py`: Code for estimating hyperplanes with different fractions of positive/negative samples.
 
 ## Acknowledgements
-This work is supported by the National Science Foundation under Grant No. 1763642, and the Princeton First Year Fellowship to SK. We also thank Deniz Oktay, Felix Yu, Angelina Wang and Zeyu Wang, as well as the Fairness in AI group for helpful comments and suggestions.
+This work is supported by the National Science Foundation under Grant No. 1763642 and the Princeton First Year Fellowship to SK. We also thank Arvind Narayanan, Deniz Oktay, Angelina Wang, Zeyu Wang, Felix Yu, Sharon Zhang, as well as the Bias in AI reading group for helpful comments and suggestions.
