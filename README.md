@@ -1,9 +1,9 @@
 
 # Fair Attribute Classification through Latent Space De-biasing
 
-### [Project page](https://princetonvisualai.github.io/gan-debiasing/) | [Paper](https://arxiv.org/abs/2012.01469) | [Colab notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C2W2_GAN_Debiasing_(Optional).ipynb)
+### [Project Page](https://princetonvisualai.github.io/gan-debiasing/) | [Paper](https://arxiv.org/abs/2012.01469) | [Colab Notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C2W2_GAN_Debiasing_(Optional).ipynb)
 
-This repo provides the code for our CVPR 2021 paper "Fair Attribute Classification through Latent Space De-biasing."
+This repo provides the code for our CVPR 2021 paper "Fair Attribute Classification through Latent Space De-biasing." 
 ```
 @inproceedings{ramaswamy2020debiasing,
 author = {Vikram V. Ramaswamy and Sunnie S. Y. Kim and Olga Russakovsky},
@@ -12,6 +12,7 @@ booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVP
 year = {2021}
 }
 ```
+Our work is featured in Coursera's [Generative Adversarial Networks (GANs) Specialization](https://www.coursera.org/specializations/generative-adversarial-networks-gans) course. Check out the colab notebook linked above for details.
 
 ## Main experiments
 
