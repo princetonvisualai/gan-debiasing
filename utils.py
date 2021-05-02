@@ -4,6 +4,8 @@ import torchvision.transforms as T
 import numpy as np
 from sklearn.metrics import average_precision_score, f1_score, recall_score
 from os import listdir, path, mkdir
+from scipy.ndimage import gaussian_filter
+
 
 def compute_weight(domain, target):
 
@@ -188,7 +190,7 @@ def smoothed_hist_kl_distance(a, b, nbins=50, sigma=1):
 
     return kl(asmooth, bsmooth), kl(bsmooth, asmooth)
 
-def bootstrap_deo(domain, targets, pred, repeat):
+def bootstrap_deo(domain, targets, pred, repeat=500):
     max_val = targets.squeeze().shape[0]
     deo = np.zeros(repeat)
     for i in range(repeat):
@@ -314,7 +316,7 @@ def bootstrap_bias_amp(domain, targets, pred, repeat=500):
 
     return np.median(auc_bias), np.std(auc_bias)
 
-def bootstrap_kl(domain, targets, scores, repeat):
+def bootstrap_kl(domain_all, targets_all, scores_all, repeat=500):
     max_val = targets_all.shape[0]
     avg_prec = np.zeros(repeat)
 
@@ -348,11 +350,9 @@ def bootstrap_kl(domain, targets, scores, repeat):
             scores[np.logical_and(domain==1, targets==0)], nbins=nbin)
         a_b_neg_sublist.append(a_b_neg); b_a_neg_sublist.append(b_a_neg)
 
-    a_b_list.append(a_b_sublist)
-    b_a_list.append(b_a_sublist)
-    a_b_pos_list.append(a_b_pos_sublist)
-    b_a_pos_list.append(b_a_pos_sublist)
-    a_b_neg_list.append(a_b_neg_sublist)
-    b_a_neg_list.append(b_a_neg_sublist)
+    #a_b_pos_list.append(a_b_pos_sublist)
+    #b_a_pos_list.append(b_a_pos_sublist)
+    #a_b_neg_list.append(a_b_neg_sublist)
+    #b_a_neg_list.append(b_a_neg_sublist)
 
-    return np.median(a_b_pos_list+a_b_neg_list+b_a_pos_list+b_a_neg_list), np.std(a_b_pos_list+a_b_neg_list+b_a_pos_list+b_a_neg_list)
+    return np.median(a_b_pos_sublist+a_b_neg_sublist+b_a_pos_sublist+b_a_neg_sublist), np.std(a_b_pos_sublist+a_b_neg_sublist+b_a_pos_sublist+b_a_neg_sublist)
