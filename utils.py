@@ -163,7 +163,7 @@ def get_threshold(targets_all, scores_all):
             best_acc = acc
             best_t = thresh
 
-    return best_t, best_acc
+    return best_acc, best_t
 
 def calibrated_threshold(targets, scores):
     cp = int(targets.sum())
