@@ -1,7 +1,7 @@
 
 # Fair Attribute Classification through Latent Space De-biasing
 
-### [Project Page](https://princetonvisualai.github.io/gan-debiasing/) | [Paper](https://arxiv.org/abs/2012.01469) | [Colab Notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C2W2_GAN_Debiasing_(Optional).ipynb)
+### [Project Page](https://princetonvisualai.github.io/gan-debiasing/) | [Paper](https://arxiv.org/abs/2012.01469) | [Colab Notebook](https://colab.research.google.com/github/https-deeplearning-ai/GANs-Public/blob/master/C2W2_GAN_Debiasing_(Optional).ipynb) | [2min Talk](https://youtu.be/j5LwfJQNJYU) | [5min Talk](https://youtu.be/KIJ61YF05Js) | [10min Talk](https://youtu.be/1ebHTCQRNs4)
 
 This repo provides the code for our CVPR 2021 paper "Fair Attribute Classification through Latent Space De-biasing." 
 ```
